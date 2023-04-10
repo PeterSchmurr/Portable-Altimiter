@@ -21,3 +21,5 @@ lcd.setCursor(0, 1);
 lcd.print(bme.readAltitude(1021)*3.3);
 delay(2000);                         
 }
+
+// add pushbutton to reset pressure reading to 0
