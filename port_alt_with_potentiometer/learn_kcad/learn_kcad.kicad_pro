@@ -190,7 +190,10 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      "power_pin_not_driven|889000|787400|fb10acbb-5fad-4b62-970b-a86e66153f5a|00000000-0000-0000-0000-000000000000|||",
+      "power_pin_not_driven|914400|1257300|f8eb3e74-d131-4615-bec9-de44afe824f7|00000000-0000-0000-0000-000000000000|||"
+    ],
     "meta": {
       "version": 0
     },
@@ -401,13 +404,11 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [
-      "Connector_BarrelJack"
-    ],
+    "pinned_footprint_libs": [],
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "port_alt.kicad_pro",
+    "filename": "learn_kcad.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -484,7 +485,7 @@
   },
   "sheets": [
     [
-      "baa04b76-6fb6-47fa-abc3-aa91b475b2fa",
+      "93734e61-39f7-4edd-9924-3a8805e76082",
       ""
     ]
   ],

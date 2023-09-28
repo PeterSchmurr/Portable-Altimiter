@@ -1,0 +1,4 @@
+"#","Reference","Qty","Value","Footprint","DNP"
+"1","BT1","1","3v","Battery:BatteryHolder_Bulgin_BX0036_1xC",""
+"2","D1","1","red","LED_SMD:LED_0402_1005Metric",""
+"3","R1","1","1k","Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P1.90mm_Vertical",""

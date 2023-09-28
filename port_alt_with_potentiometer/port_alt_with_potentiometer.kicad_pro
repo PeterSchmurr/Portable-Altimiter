@@ -407,7 +407,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "port_alt.kicad_pro",
+    "filename": "port_alt_with_potentiometer.kicad_pro",
     "version": 1
   },
   "net_settings": {

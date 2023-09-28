@@ -1,0 +1,22 @@
+** Drc report for D:\Documents\Daily Backup\Hobbies\Projects\Portable_Altimeter\port_alt\port_alt.kicad_pcb **
+** Created on 2023-05-07 22:45:27 **
+
+** Found 4 DRC violations **
+[lib_footprint_mismatch]: Footprint 'BMP280' does not match copy in library 'peters_custom_footprints'.
+    Local override; Severity: warning
+    @(6.1244 in, 3.9016 in): Footprint U2
+[invalid_outline]: Board has malformed outline (no edges found on Edge.Cuts layer)
+    Local override; Severity: error
+    @(0.0000 in, 0.0000 in): PCB
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(4.2106 in, 5.3413 in): Arc on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(4.9106 in, 5.3413 in): Arc on F.Silkscreen
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **
