@@ -26,7 +26,7 @@ int r;
 
 void setup() {
   
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(zeroButton,OUTPUT);  
   bool sensorStatus = bme.begin(BME_280_ADDR);
   Serial.println("sensor status = "+sensorStatus);
@@ -62,13 +62,16 @@ void loop() {
     digitalWrite (zeroButton,LOW);
   }
   altitude = bme.readAltitude(1013.25)*3.28;
-  if (sn=3)
+  Serial.println("sn before collectReadings is called is  "+String(sn));
+  collectReadings(altitude);
+  if (sn==3)
   {
     r = int(rate(reading2,reading1));
     Serial.println("rate   " + String(r));
     sn=1;
   }
-  
+  //Serial.println("Serial number = " + String(sn));
+
   delta = altitude - zero;
   display.clearDisplay();
   display.setCursor(0,0);
@@ -78,34 +81,43 @@ void loop() {
    display.println ("rate: "+ String(r));
   display.display();
   
-  Serial.println(String("alt:")+ String( int(delta)));
+  //Serial.println(String("alt:")+ String( int(delta)));
 
   
 
-delay(500);                         
+delay(500);                       
 }
 //consumes two altitude readings and returns the difference between the two
 int rate(float altitude1, float altitude2)
 {
-  return int(altitude1 - altitude2)/120;
+  Serial.println("altitude1 =" + String(reading1));
+  Serial.println("altitude2 =" + String(reading2));
+  return int(altitude1 - altitude2)*120;
   
 }
 
 // collectts two altitude readings in sequence and assigns them to variables reading1 and reading2
 void collectReadings(float reading){
 
-  if (sn=1)
-  {
-    reading1 = reading;
-    sn = 2;
-  }
-  else if(sn=2)
-  {
-    reading2 = reading;
-    sn = 3;
-  }
-  else
-  {
-    sn = 1;
+  switch(sn){
+    case 1:
+      reading1 = reading;
+      Serial.println("reading1 = "+String(reading1));
+      sn = 2;
+      //Serial.println("Reached case 1 Serial number = " + String (sn));
+      break;
+    case 2:
+      reading2 = reading;
+      Serial.println("reading2 = "+String(reading2));
+      sn = 3;
+      //Serial.println("Reached case 2  Serial number = " + String (sn));
+    break;
+    defaut:
+      
+      //Serial.println("Reached default case  Serial number = " + String (sn));
+    break;
+    
   }
 }
+
+  
