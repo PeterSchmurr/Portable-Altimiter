@@ -22,7 +22,7 @@ float delta;// current altitude minus altitude at time of zero calibration
 float reading1;
 float reading2;
 int sn=1;
-int r;
+float r;
 
 void setup() {
   
@@ -66,7 +66,7 @@ void loop() {
   collectReadings(altitude);
   if (sn==3)
   {
-    r = int(rate(reading2,reading1));
+    r = float(rate(reading2,reading1));
     Serial.println("rate   " + String(r));
     sn=1;
   }
@@ -88,11 +88,11 @@ void loop() {
 delay(500);                       
 }
 //consumes two altitude readings and returns the difference between the two
-int rate(float altitude1, float altitude2)
+float rate(float altitude1, float altitude2)
 {
   Serial.println("altitude1 =" + String(reading1));
   Serial.println("altitude2 =" + String(reading2));
-  return int(altitude1 - altitude2)*120;
+  return (altitude1 - altitude2)*120;
   
 }
 
