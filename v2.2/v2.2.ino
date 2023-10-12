@@ -64,7 +64,10 @@ void loop() {
     digitalWrite (zeroButton,LOW);
   }
   altitude = bme.readAltitude(1013.25)*3.28;
-  Serial.println("sn before collectReadings is called is  "+String(sn));
+  
+  // return average of last 5 rate calculations
+   r=averageRate();
+  
   collectReadings(altitude);
   if (sn==3)
   {
@@ -87,14 +90,18 @@ void loop() {
 
   
 
-delay(2500);                       
+delay(500);                       
+}
+
+float averageRate(){
+  
 }
 //consumes two altitude readings and returns the difference between the two
 float rate(float altitude1, float altitude2)
 {
   Serial.println("altitude1 =" + String(reading1));
   Serial.println("altitude2 =" + String(reading2));
-  return (altitude1 - altitude2)*12;
+  return (altitude1 - altitude2)*120;
   
 }
 
