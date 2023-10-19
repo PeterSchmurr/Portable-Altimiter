@@ -105,7 +105,7 @@ float rate(float altitude1, float altitude2)
   
 }
 
-// collectts two altitude readings in sequence and assigns them to variables reading1 and reading2
+// collects two altitude readings in sequence and assigns them to global variables reading1 and reading2
 void collectReadings(float reading){
 
   switch(sn){
