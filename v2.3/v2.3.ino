@@ -1,4 +1,4 @@
-//comment to test git repository location
+//stabalize rate to only readout for an altitude change of more than 1 ft
 
 #include <Wire.h>
 #include <Adafruit_SSD1306.h>
@@ -70,7 +70,14 @@ void loop() {
   
   collectReadings(altitude);
   if (sn==3)
-  {
+  { bool intensityCheck = (abs (reading2 - reading1)<1);
+  if(intensityCheck)
+    {
+      sn=1;
+      loop();
+    }
+    
+    
     r = float(rate(reading2,reading1));
     Serial.println("rate   " + String(r));
     sn=1;
@@ -119,13 +126,10 @@ void collectReadings(float reading){
       reading2 = reading;
       Serial.println("reading2 = "+String(reading2));
       sn = 3;
-      //Serial.println("Reached case 2  Serial number = " + String (sn));
-    break;
-    defaut:
       
-      //Serial.println("Reached default case  Serial number = " + String (sn));
     break;
-    
+    default:  ;
+         
   }
 }
 
