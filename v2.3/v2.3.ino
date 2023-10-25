@@ -10,6 +10,8 @@
 
 #define OLED_WIDTH 128
 #define OLED_HEIGHT 32
+#define cutoff 2
+#define delayInterval 500
 
 #define OLED_ADDR   0x3C
 #define BME_280_ADDR 0x77
@@ -70,7 +72,7 @@ void loop() {
   
   collectReadings(altitude);
   if (sn==3)
-  { bool intensityCheck = (abs (reading2 - reading1)<1);
+  { bool intensityCheck = (abs (reading2 - reading1)<cutoff);
   if(intensityCheck)
     {
       sn=1;
@@ -97,7 +99,7 @@ void loop() {
 
   
 
-delay(2000);                       
+delay(delayInterval);                       
 }
 
 float averageRate(){
@@ -108,7 +110,8 @@ float rate(float altitude1, float altitude2)
 {
   Serial.println("altitude1 =" + String(reading1));
   Serial.println("altitude2 =" + String(reading2));
-  return (altitude1 - altitude2)*120;
+  
+  return (altitude1 - altitude2)*60000/delayInterval;
   
 }
 
